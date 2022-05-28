@@ -6,6 +6,7 @@ const app = express();
 
 //call http for server connection
 const http = require("http");
+const {response} = require("express");
 
 //use http with express to make a "express server"
 const connection = http.createServer(app);
@@ -14,6 +15,10 @@ app.get("/", (req, res) => {
     res.send("<h1> This is Node.js Server </h1>")
 });
 
-connection.listen(666, () => {
-    console.log("SERVER 666 👿");
+app.get("/homePage", (req, res) => {
+    res.sendFile(__dirname + "/homepage.html");
+});
+
+connection.listen(777, () => {
+    console.log("SERVER 777 ");
 });
